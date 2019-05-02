@@ -13,13 +13,12 @@ public class Worker {
 	private Double baseSalary;
 
 	private Department department;
-	private List<HourContract> HourContracts = new ArrayList<HourContract>();
+	private List<HourContract> contracts = new ArrayList<>();
 
 	public Worker() {
 	}
 
 	public Worker(String name, WorkerLevel level, Double baseSalary, Department department) {
-		super();
 		this.name = name;
 		this.level = level;
 		this.baseSalary = baseSalary;
@@ -59,25 +58,25 @@ public class Worker {
 	}
 
 	public List<HourContract> getHourContracts() {
-		return HourContracts;
+		return contracts;
 	}
 
 	public void addContract(HourContract contract) {
-		HourContracts.add(contract);
+		contracts.add(contract);
 	}
 
 	public void removeContract(HourContract contract) {
-		HourContracts.remove(contract);
+		contracts.remove(contract);
 	}
 
-	public Double income(Integer year, Integer mouth) {
+	public double income(int year, int month) {
 		double sum = baseSalary;
 		Calendar cal = Calendar.getInstance();
-		for (HourContract c : HourContracts) {
+		for (HourContract c : contracts) {
 			cal.setTime(c.getDate());
 			int c_Year = cal.get(Calendar.YEAR);
-			int c_Mouth = cal.get(Calendar.MONTH);
-			if (year == c_Year && mouth == c_Mouth)
+			int c_Month = 1 + cal.get(Calendar.MONTH);
+			if (year == c_Year && month == c_Month)
 				sum += c.totalValue();
 		}
 		return sum;

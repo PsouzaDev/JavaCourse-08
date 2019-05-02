@@ -2,10 +2,8 @@ package entities;
 
 public class Department {
 
-	public String name;
+	private String name;
 
-	
-	
 	public Department() {
 	}
 

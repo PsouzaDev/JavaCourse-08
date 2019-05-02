@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class HourContract {
 
-	public Date date;
-	public Double ValuePerHour;
-	public Integer hours;
+	private Date date;
+	private Double valuePerHour;
+	private Integer hours;
 
 	public HourContract() {
 	}
 
 	public HourContract(Date date, Double valuePerHour, Integer hours) {
 		this.date = date;
-		ValuePerHour = valuePerHour;
+		this.valuePerHour = valuePerHour;
 		this.hours = hours;
 	}
 
@@ -26,11 +26,11 @@ public class HourContract {
 	}
 
 	public Double getValuePerHour() {
-		return ValuePerHour;
+		return valuePerHour;
 	}
 
 	public void setValuePerHour(Double valuePerHour) {
-		ValuePerHour = valuePerHour;
+		valuePerHour = valuePerHour;
 	}
 
 	public Integer getHours() {
@@ -43,11 +43,11 @@ public class HourContract {
 
 	@Override
 	public String toString() {
-		return "HourContract [date=" + date + ", ValuePerHour=" + ValuePerHour + ", hours=" + hours + "]";
+		return "HourContract [date=" + date + ", ValuePerHour=" + valuePerHour + ", hours=" + hours + "]";
 	}
 
 	public Double totalValue() {
-		return this.hours * this.ValuePerHour;
+		return this.hours * this.valuePerHour;
 	}
 
 }
